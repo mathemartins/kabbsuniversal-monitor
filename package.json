@@ -1,8 +1,8 @@
 {
-  "name": "berry-free-material-react-cra",
+  "name": "O.S.A KABBS Universal",
   "version": "3.3.2",
   "private": true,
-  "homepage": "https://berrydashboard.io/free",
+  "homepage": "https://osa.kabbsuniversal.com/free",
   "dependencies": {
     "@emotion/cache": "^11.9.3",
     "@emotion/react": "^11.9.3",
@@ -15,6 +15,7 @@
     "@react-google-maps/api": "^2.19.2",
     "@tabler/icons": "^1.72.0",
     "apexcharts": "^3.35.3",
+    "firebase": "^10.3.0",
     "formik": "^2.2.9",
     "framer-motion": "^6.3.16",
     "material-ui-popup-state": "^4.0.1",
