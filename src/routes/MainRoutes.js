@@ -1,5 +1,5 @@
 import { lazy } from 'react';
-import ProtectedRoute from './ProtectedRoutes'; 
+import ProtectedRoute from './ProtectedRoutes';
 
 // project imports
 import MainLayout from 'layout/MainLayout';
@@ -20,9 +20,8 @@ const UtilsTablerIcons = Loadable(lazy(() => import('views/utilities/TablerIcons
 
 // ==============================|| MAIN ROUTING ||============================== //
 
-
 const MainRoutes = {
-  path: '/',
+  path: '/dashboard',
   element: <MainLayout />,
   children: [
     {
