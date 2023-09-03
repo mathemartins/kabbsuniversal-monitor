@@ -20,7 +20,7 @@ const utilities = {
       id: 'util-fcm-pn',
       title: 'Send Cloud Notifier',
       type: 'item',
-      url: '/utils/util-cloud-notify',
+      url: '#',
       icon: icons.IconTypography,
       breadcrumbs: false
     },
@@ -28,7 +28,7 @@ const utilities = {
       id: 'util-trips',
       title: 'Trips',
       type: 'item',
-      url: '/utils/util-trips',
+      url: 'trips',
       icon: icons.IconPalette,
       breadcrumbs: false
     },
@@ -36,10 +36,18 @@ const utilities = {
       id: 'util-drivers',
       title: 'Drivers',
       type: 'item',
-      url: '/utils/util-drivers',
+      url: 'drivers',
       icon: icons.IconShadow,
       breadcrumbs: false
     },
+    {
+      id: 'util-reg-drivers',
+      title: 'Register Driver',
+      type: 'item',
+      url: 'register-drivers',
+      icon: icons.IconShadow,
+      breadcrumbs: false
+    }
   ]
 };
 
