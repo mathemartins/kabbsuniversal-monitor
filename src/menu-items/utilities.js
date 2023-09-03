@@ -42,7 +42,7 @@ const utilities = {
     },
     {
       id: 'util-reg-drivers',
-      title: 'Register Driver',
+      title: 'Register A Driver',
       type: 'item',
       url: 'register-drivers',
       icon: icons.IconShadow,
