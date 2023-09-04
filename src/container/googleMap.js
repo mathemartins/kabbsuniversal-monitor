@@ -136,7 +136,7 @@ export const GooogleMap = () => {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
-          <SearchButton onClick={handleSearch}>Search</SearchButton>
+          <SearchButton onClick={handleSearch}>Search Location</SearchButton>
         </SearchContainer>
         <GoogleMap mapContainerStyle={containerStyle} center={mapCenter} zoom={13} ref={mapRef}>
         {activeDrivers.map((marker) => (

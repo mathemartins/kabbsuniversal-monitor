@@ -5,8 +5,9 @@ import { Grid } from '@mui/material';
 
 // project imports
 import DriversCard from './DriversCard';
+import ActiveDriversCard from './ActiveDriversCard';
 import Last5TripsCard from './Last5TripsCard';
-import TotalOrderLineChartCard from './TotalOrderLineChartCard';
+// import TotalOrderLineChartCard from './TotalOrderLineChartCard';
 import TotalIncomeDarkCard from './TotalIncomeDarkCard';
 import RidersCard from './RidersCard';
 // import TotalGrowthBarChart from './TotalGrowthBarChart';
@@ -28,7 +29,8 @@ const Dashboard = () => {
             <DriversCard isLoading={isLoading} />
           </Grid>
           <Grid item lg={4} md={6} sm={6} xs={12}>
-            <TotalOrderLineChartCard isLoading={isLoading} />
+            {/* <TotalOrderLineChartCard isLoading={isLoading} /> */}
+            <ActiveDriversCard isLoading={isLoading} />
           </Grid>
           <Grid item lg={4} md={12} sm={12} xs={12}>
             <Grid container spacing={gridSpacing}>

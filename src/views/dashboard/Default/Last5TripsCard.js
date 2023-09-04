@@ -9,7 +9,6 @@ import { Avatar, Button, CardActions, CardContent, Divider, Grid, Menu, MenuItem
 import { getDatabase, ref, limitToLast, onValue, query, orderByChild} from 'firebase/database';
 
 // project imports
-import BajajAreaChartCard from './BajajAreaChartCard';
 import MainCard from 'ui-component/cards/MainCard';
 import SkeletonPopularCard from 'ui-component/cards/Skeleton/PopularCard';
 import { gridSpacing } from 'store/constant';
@@ -111,9 +110,6 @@ const Last5TripsCard = ({ isLoading }) => {
                     </Menu>
                   </Grid>
                 </Grid>
-              </Grid>
-              <Grid item xs={12} sx={{ pt: '16px !important' }}>
-                <BajajAreaChartCard />
               </Grid>
               
               <Grid item xs={12}>
