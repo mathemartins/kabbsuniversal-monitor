@@ -12,7 +12,6 @@ const AuthRegister3 = Loadable(lazy(() => import('views/pages/authentication/aut
 // dashboard page
 const DashboardDefault = Loadable(lazy(() => import('views/dashboard/Default')));
 
-
 // ==============================|| AUTHENTICATION ROUTING ||============================== //
 
 const AuthenticationRoutes = {
@@ -20,7 +19,7 @@ const AuthenticationRoutes = {
   element: <MinimalLayout />,
   children: [
     {
-      path: '/pages/login',
+      path: '/',
       element: <AuthLogin3 />
     },
     {
