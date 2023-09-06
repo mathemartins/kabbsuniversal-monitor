@@ -53,7 +53,7 @@ const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(({
 
 // ==============================|| MAIN LAYOUT ||============================== //
 
-const MainLayout = () => {
+const MainLayout = (props) => {
   const theme = useTheme();
   const matchDownMd = useMediaQuery(theme.breakpoints.down('md'));
   // Handle left drawer
@@ -62,7 +62,7 @@ const MainLayout = () => {
   const handleLeftDrawerToggle = () => {
     dispatch({ type: SET_MENU, opened: !leftDrawerOpened });
   };
-
+  // console.log(props.email);
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
@@ -78,7 +78,7 @@ const MainLayout = () => {
         }}
       >
         <Toolbar>
-          <Header handleLeftDrawerToggle={handleLeftDrawerToggle} />
+          <Header email={props.email} handleLeftDrawerToggle={handleLeftDrawerToggle} />
         </Toolbar>
       </AppBar>
 

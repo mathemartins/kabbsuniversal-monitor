@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { GoogleMap, LoadScript, Marker, InfoWindow } from '@react-google-maps/api';
 // import { useLoadScript } from '@react-google-maps/api';
 import CarIcon from 'assets/images/car.png';
@@ -10,11 +10,10 @@ import { getDatabase, ref, onValue } from 'firebase/database';
 import { styled } from '@mui/material/styles';
 import { Button, Input } from '@mui/material';
 
-
 const SearchContainer = styled('div')({
   display: 'flex',
   alignItems: 'center',
-  marginBottom: '20px',
+  marginBottom: '20px'
 });
 
 const SearchInput = styled(Input)({
@@ -23,7 +22,7 @@ const SearchInput = styled(Input)({
   border: '1px solid #ccc',
   borderRadius: '5px',
   marginRight: '10px',
-  flexGrow: 1,
+  flexGrow: 1
 });
 
 const SearchButton = styled(Button)({
@@ -35,10 +34,9 @@ const SearchButton = styled(Button)({
   cursor: 'pointer',
 
   '&:hover': {
-    backgroundColor: '#0056b3',
-  },
+    backgroundColor: '#0056b3'
+  }
 });
-
 
 const containerStyle = {
   width: '100%',
@@ -50,13 +48,11 @@ const initialMapCenter = {
   lng: 3.3715784558416035 // Set your desired initial longitude
 };
 
-
 export const GooogleMap = () => {
   // const { isLoaded, loadError } = useLoadScript({
   //   googleMapsApiKey: 'AIzaSyB8nHjTkFsaU3b4NvYLvctW8HSv5LchjYw',
   //   libraries: ['places'],
   // });
-
 
   const [activeDrivers, setActiveDrivers] = useState([]);
   const [selectedMarker, setSelectedMarker] = useState(null);
@@ -78,11 +74,11 @@ export const GooogleMap = () => {
           return {
             id: driverId,
             position,
-            icon: CarIcon, 
+            icon: CarIcon,
             info: {
               title: `Driver ${driverId}`,
-              description: `Latitude: ${position.lat}, Longitude: ${position.lng}`,
-            },
+              description: `Latitude: ${position.lat}, Longitude: ${position.lng}`
+            }
           };
         });
         setActiveDrivers(formattedMarkers);
@@ -111,7 +107,7 @@ export const GooogleMap = () => {
         const firstResult = results[0];
         const newMapCenter = {
           lat: firstResult.geometry.location.lat(),
-          lng: firstResult.geometry.location.lng(),
+          lng: firstResult.geometry.location.lng()
         };
         setMapCenter(newMapCenter);
       } else {
@@ -121,7 +117,7 @@ export const GooogleMap = () => {
     });
   };
 
-  const iconSize = { width: 40, height: 40 };
+  // const iconSize = { width: 40, height: 40 };
 
   // if (loadError) return 'Error loading maps';
   // if (!isLoaded) return 'Loading maps';
@@ -139,30 +135,26 @@ export const GooogleMap = () => {
           <SearchButton onClick={handleSearch}>Search Location</SearchButton>
         </SearchContainer>
         <GoogleMap mapContainerStyle={containerStyle} center={mapCenter} zoom={13} ref={mapRef}>
-        {activeDrivers.map((marker) => (
+          {activeDrivers.map((marker) => (
             <Marker
               key={marker.id}
               position={marker.position}
               icon={{
-                url: marker.icon,
-                scaledSize: new window.google.maps.Size(iconSize.width, iconSize.height),
+                url: marker.icon
+                // scaledSize: new window.google.maps.Size(iconSize.width, iconSize.height),
               }}
               onClick={() => handleMarkerClick(marker)}
             />
           ))}
 
           {selectedMarker && (
-            <InfoWindow
-              position={selectedMarker.position}
-              onCloseClick={handleInfoWindowClose}
-            >
+            <InfoWindow position={selectedMarker.position} onCloseClick={handleInfoWindowClose}>
               <div>
                 <h3>{selectedMarker.info.title}</h3>
                 <p>{selectedMarker.info.description}</p>
               </div>
             </InfoWindow>
           )}
-
         </GoogleMap>
       </div>
     </LoadScript>

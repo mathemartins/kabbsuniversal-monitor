@@ -1,18 +1,19 @@
-// ProtectedRoute.js
+import React from 'react';
+import { Navigate } from 'react-router-dom';
+import firebase from 'api/firebase.js';
 
-import { Navigate, Route } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-
-const ProtectedRoute = ({ path, ...props }) => {
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-
-  if (!isAuthenticated) {
+const ProtectedRoute = (props) => {
+  const user = firebase.auth().currentUser;
+  console.log(user);
+  // const email = user.multiFactor.user.email;
+  // localStorage.setItem('email':)
+  if (!user) {
     // Redirect to the login page if the user is not authenticated
-    return <Navigate to="/login" />;
+    return <Navigate to="/" />;
   }
 
-  // Render the protected route component
-  return <Route {...props} path={path} />;
+  // Render the children components if the user is authenticated
+  return props.children;
 };
 
 export default ProtectedRoute;

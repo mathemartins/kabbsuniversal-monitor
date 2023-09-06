@@ -41,7 +41,7 @@ import { IconLogout, IconSearch, IconSettings, IconUser } from '@tabler/icons';
 
 // ==============================|| PROFILE MENU ||============================== //
 
-const ProfileSection = () => {
+const ProfileSection = ({ email }) => {
   const theme = useTheme();
   const customization = useSelector((state) => state.customization);
   const navigate = useNavigate();
@@ -158,10 +158,15 @@ const ProfileSection = () => {
                     <Stack>
                       <Stack direction="row" spacing={0.5} alignItems="center">
                         <Typography variant="h4">Good Morning,</Typography>
-                        <Typography component="span" variant="h4" sx={{ fontWeight: 400 }}>
-                          Johne Doe
-                        </Typography>
                       </Stack>
+                      <Typography
+                        component="span"
+                        variant="h4"
+                        sx={{ fontWeight: 400 }}
+                        style={{ marginTop: '0.25rem', marginBottom: '0.25rem' }}
+                      >
+                        {email}
+                      </Typography>
                       <Typography variant="subtitle2">Project Admin</Typography>
                     </Stack>
                     <OutlinedInput

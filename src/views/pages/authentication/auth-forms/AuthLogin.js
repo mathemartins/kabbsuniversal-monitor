@@ -19,7 +19,7 @@ import {
   InputLabel,
   OutlinedInput,
   Stack,
-  Typography,
+  Typography
   // useMediaQuery
 } from '@mui/material';
 
@@ -144,10 +144,10 @@ const FirebaseLogin = ({ ...others }) => {
           try {
             if (scriptedRef.current) {
               setStatus({ success: true });
-              
+
               // Set submitting to true to show the loader
               setSubmitting(true);
-              
+
               // Call your login function here
               await handleLogin(values.email, values.password);
 
@@ -217,14 +217,14 @@ const FirebaseLogin = ({ ...others }) => {
                 </FormHelperText>
               )}
             </FormControl>
-            
+
             {/* Display the submit error */}
             {errors.submit && (
               <Box sx={{ mt: 3 }}>
                 <FormHelperText error>{errors.submit}</FormHelperText>
               </Box>
             )}
-            
+
             <Stack direction="row" alignItems="center" justifyContent="space-between" spacing={1}>
               <FormControlLabel
                 control={
@@ -236,7 +236,7 @@ const FirebaseLogin = ({ ...others }) => {
                 Forgot Password?
               </Typography>
             </Stack>
-            
+
             <Box sx={{ mt: 2 }}>
               <AnimateButton>
                 <Button

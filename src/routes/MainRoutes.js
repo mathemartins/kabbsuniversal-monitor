@@ -20,31 +20,55 @@ import { RegisteredDrivers } from 'container/registeredDrivers';
 import { Trips } from 'container/trips';
 import { Drivers } from 'container/drivers';
 
+import firebase from 'api/firebase.js';
 // sample page routing
 // const SamplePage = Loadable(lazy(() => import('views/sample-page')));
 
 // ==============================|| MAIN ROUTING ||============================== //
+const user = firebase.auth().currentUser;
+// console.log(user.multiFactor.user.email);
+const email = user.multiFactor.user.email;
 
 const MainRoutes = {
   path: '/dashboard',
-  element: <MainLayout />,
+  element: (
+    <ProtectedRoute>
+      <MainLayout email={email} />
+    </ProtectedRoute>
+  ),
   children: [
     {
       path: '/dashboard',
-      element: <DashboardDefault />
+      element: (
+        <ProtectedRoute>
+          <DashboardDefault />
+        </ProtectedRoute>
+      )
     },
     {
       path: 'register-drivers',
-      element: <RegisteredDrivers />
+      element: (
+        <ProtectedRoute>
+          <RegisteredDrivers />
+        </ProtectedRoute>
+      )
     },
     {
       path: 'trips',
-      element: <Trips />
+      element: (
+        <ProtectedRoute>
+          <Trips />
+        </ProtectedRoute>
+      )
     },
     {
       path: 'drivers',
-      element: <Drivers />
-    },
+      element: (
+        <ProtectedRoute>
+          <Drivers />
+        </ProtectedRoute>
+      )
+    }
     // {
     //   path: 'dashboard',
     //   children: [
@@ -104,10 +128,10 @@ const MainRoutes = {
     //   ]
     // },
     // Wrap the protected route with ProtectedRoute
-    {
-      path: 'dashboard',
-      element: <ProtectedRoute path="/" element={<DashboardDefault />} />
-    }
+    // {
+    //   path: 'dashboard',
+    //   element: <ProtectedRoute path="/" element={<DashboardDefault />} />
+    // }
   ]
 };
 

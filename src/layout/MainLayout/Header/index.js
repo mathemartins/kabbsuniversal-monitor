@@ -14,7 +14,7 @@ import { IconMenu2 } from '@tabler/icons';
 
 // ==============================|| MAIN NAVBAR / HEADER ||============================== //
 
-const Header = ({ handleLeftDrawerToggle }) => {
+const Header = ({ handleLeftDrawerToggle, email }) => {
   const theme = useTheme();
 
   return (
@@ -30,9 +30,7 @@ const Header = ({ handleLeftDrawerToggle }) => {
         }}
       >
         <Box component="span" sx={{ display: { xs: 'none', md: 'block' }, flexGrow: 1 }}>
-          <Typography variant="h1">
-            O . S . A
-          </Typography>
+          <Typography variant="h1">O . S . A </Typography>
         </Box>
         <ButtonBase sx={{ borderRadius: '12px', overflow: 'hidden' }}>
           <Avatar
@@ -63,7 +61,7 @@ const Header = ({ handleLeftDrawerToggle }) => {
 
       {/* notification & profile */}
       <NotificationSection />
-      <ProfileSection />
+      <ProfileSection email={email} />
     </>
   );
 };
