@@ -4,7 +4,11 @@ import firebase from 'api/firebase.js';
 
 const ProtectedRoute = (props) => {
   const user = firebase.auth().currentUser;
-  console.log(user);
+  const email = user?.multiFactor?.user?.email;
+  localStorage.setItem('email', email);
+
+  // console.log(email);
+
   // const email = user.multiFactor.user.email;
   // localStorage.setItem('email':)
   if (!user) {

@@ -14,7 +14,7 @@ import { IconMenu2 } from '@tabler/icons';
 
 // ==============================|| MAIN NAVBAR / HEADER ||============================== //
 
-const Header = ({ handleLeftDrawerToggle, email }) => {
+const Header = ({ handleLeftDrawerToggle }) => {
   const theme = useTheme();
 
   return (
@@ -61,7 +61,7 @@ const Header = ({ handleLeftDrawerToggle, email }) => {
 
       {/* notification & profile */}
       <NotificationSection />
-      <ProfileSection email={email} />
+      <ProfileSection />
     </>
   );
 };

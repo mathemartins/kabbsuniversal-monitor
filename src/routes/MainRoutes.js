@@ -27,7 +27,7 @@ import firebase from 'api/firebase.js';
 // ==============================|| MAIN ROUTING ||============================== //
 const user = firebase.auth().currentUser;
 // console.log(user.multiFactor.user.email);
-const email = user.multiFactor.user.email;
+const email = user?.multiFactor?.user.email;
 
 const MainRoutes = {
   path: '/dashboard',
