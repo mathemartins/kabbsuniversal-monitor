@@ -34,7 +34,7 @@ export const DriversDetails = () => {
   }, [id]);
 
   if (!driver) {
-    return <div>Loading...</div>;
+    return <div>No details</div>;
   }
   // const stringValue = driversDetails[key].ratings;
   // const numberValue = parseFloat(stringValue).toFixed(1);
@@ -46,6 +46,13 @@ export const DriversDetails = () => {
       <p>Name: {driver.name}</p>
       <p>Phone Number: {driver.phone}</p>
       <p>Email: {driver.email}</p>
+
+      <div style={{ marginTop: '3rem' }}>
+        <h1>Car Details</h1>
+        <p>Car Model: {driver.car_details.car_model}</p>
+        <p>Plate Number: {driver.car_details.plate_number}</p>
+        <p>Car Color: {driver.car_details.car_color}</p>
+      </div>
     </div>
   );
 };
