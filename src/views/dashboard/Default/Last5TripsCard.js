@@ -6,7 +6,7 @@ import { useTheme } from '@mui/material/styles';
 import { Avatar, Button, CardActions, CardContent, Divider, Grid, Menu, MenuItem, Typography } from '@mui/material';
 
 // firebase imports
-import { getDatabase, ref, limitToLast, onValue, query, orderByChild} from 'firebase/database';
+import { getDatabase, ref, limitToLast, onValue, query, orderByChild } from 'firebase/database';
 
 // project imports
 import MainCard from 'ui-component/cards/MainCard';
@@ -21,9 +21,7 @@ import KeyboardArrowUpOutlinedIcon from '@mui/icons-material/KeyboardArrowUpOutl
 
 // ==============================|| DASHBOARD DEFAULT - POPULAR CARD ||============================== //
 
-
 const Last5TripsCard = ({ isLoading }) => {
-
   const theme = useTheme();
 
   const [anchorEl, setAnchorEl] = useState(null);
@@ -111,60 +109,46 @@ const Last5TripsCard = ({ isLoading }) => {
                   </Grid>
                 </Grid>
               </Grid>
-              
+
               <Grid item xs={12}>
                 <Grid container direction="column">
-                    {last5Trips.map((trip, index) => (
-                        <Grid item key={index}>
-                            <Grid container alignItems="center" justifyContent="space-between">
-                                <Grid item>
-                                    <Typography variant="subtitle1" color="inherit">
-                                        Driver: {trip.driverName}
-                                    </Typography>
-                                </Grid>
-                                <Grid item>
-                                    <Grid container alignItems="center" justifyContent="space-between">
-                                        <Grid item>
-                                        <Typography variant="subtitle1" color="inherit">
-                                            ₦{trip.fareAmount}
-                                        </Typography>
-                                        </Grid>
-                                        <Grid item>
-                                        <Avatar
-                                            variant="rounded"
-                                            sx={{
-                                            width: 16,
-                                            height: 16,
-                                            borderRadius: '5px',
-                                            backgroundColor: theme.palette.success.light,
-                                            color: theme.palette.success.dark,
-                                            ml: 2,
-                                            }}
-                                        >
-                                            <KeyboardArrowUpOutlinedIcon fontSize="small" color="inherit" />
-                                        </Avatar>
-                                        </Grid>
-                                    </Grid>
-                                </Grid>
-                            </Grid>
-                            <Divider sx={{ my: 1.5 }} />
-                            <Grid item>
-                                <Typography variant="subtitle2" sx={{ color: 'success.dark' }}>
-                                Rider: {trip.username}
-                                </Typography>
-                            </Grid>
-                            <Grid item>
-                                <Typography variant="subtitle2" sx={{ color: theme.palette.orange.dark }}>
-                                    Destination: {trip.destinationAddress}
-                                </Typography>
-                            </Grid>
-                        </Grid>
-                    ))}
+                  {last5Trips.map((trip, index) => (
+                    <div key={index} style={{ marginBottom: '2rem' }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                        <Typography variant="subtitle1" color="inherit">
+                          Driver: {trip.driverName}
+                        </Typography>
+
+                        <div style={{ display: 'flex', gap: '3px' }}>
+                          ₦{trip.fareAmount}
+                          <Avatar
+                            variant="rounded"
+                            sx={{
+                              width: 16,
+                              height: 16,
+                              borderRadius: '5px',
+                              backgroundColor: theme.palette.success.light,
+                              color: theme.palette.success.dark,
+                              ml: 2
+                            }}
+                          >
+                            <KeyboardArrowUpOutlinedIcon fontSize="small" color="inherit" />
+                          </Avatar>
+                        </div>
+                      </div>
+
+                      <Typography variant="subtitle2" sx={{ color: 'success.dark' }}>
+                        Rider: {trip.username}
+                      </Typography>
+
+                      <Typography variant="subtitle2" sx={{ color: theme.palette.orange.dark }}>
+                        Destination: {trip.destinationAddress}
+                      </Typography>
+                    </div>
+                  ))}
                 </Grid>
                 <Divider sx={{ my: 1.5 }} />
               </Grid>
-
-
             </Grid>
           </CardContent>
           <CardActions sx={{ p: 1.25, pt: 0, justifyContent: 'center' }}>

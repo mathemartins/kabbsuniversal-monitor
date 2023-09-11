@@ -19,6 +19,7 @@ const DashboardDefault = Loadable(lazy(() => import('views/dashboard/Default')))
 import { RegisteredDrivers } from 'container/registeredDrivers';
 import { Trips } from 'container/trips';
 import { Drivers } from 'container/drivers';
+import { DriversDetails } from 'container/driversDetails';
 
 import firebase from 'api/firebase.js';
 // sample page routing
@@ -66,6 +67,14 @@ const MainRoutes = {
       element: (
         <ProtectedRoute>
           <Drivers />
+        </ProtectedRoute>
+      )
+    },
+    {
+      path: 'drivers/:id',
+      element: (
+        <ProtectedRoute>
+          <DriversDetails />
         </ProtectedRoute>
       )
     }
